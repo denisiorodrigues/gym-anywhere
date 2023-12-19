@@ -1,0 +1,23 @@
+{
+  "name": "gym-anywhere",
+  "version": "1.0.0",
+  "description": "GymPass style app.",
+  "main": "index.js",
+  "scripts": {
+    "strat:dev" : "tsx watch src/server.ts",
+    "strat" : "node build/servre.js",
+    "build" : "tsup src --out-dir build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "tsup": "^8.0.1",
+    "tsx": "^4.6.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "fastify": "^4.25.1"
+  }
+}
