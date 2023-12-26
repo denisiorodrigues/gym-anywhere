@@ -31,9 +31,12 @@ GymPass style app.
 - [ ] Todas listas de dados precisam estar paginadas com 20 itens por página;
 - [ ] O usuário deve ser identificado por um JWT (JSON Web Token);
 
+## Development
 
-# Development
+Desenvilvimento
+
 ## Bibliotecas
+
 Bibliotecas para desenvolvimento
 ``npm i typescript @types/node tsx tsup -D``
 
@@ -42,8 +45,14 @@ Instalar o fastfy
 
 ## Configuração
 
+### Projeto
+
 Criar o arquivo tsconfig.json
 ``npx tsc --ini``
 
 Mudar o targei para uma versão mais recente do Ecmascript
 `` "target": "es2020", ``
+
+### ESlint
+
+Usando as configruações da roketseat
