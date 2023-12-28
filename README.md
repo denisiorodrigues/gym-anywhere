@@ -1,6 +1,8 @@
 # App
 
 GymPass style app.
+Utilizaremos o Prisma ORM para gerenciar a base de dados que nesse caso escolhemos o postgresql.
+A base de dados vai ficar no docker.
 
 ---
 
@@ -55,30 +57,53 @@ Criar o arquivo tsconfig.json
 Mudar o targei para uma versão mais recente do Ecmascript
 `"target": "es2020",`
 
+String de conexão com a base de dados
+
+- PostgreSQL
+
+``
+
 ### ORM
 
 Vamos utilizar o prisma ORM e iniciar com o segiunte comando:
 
-`npx prisma init`
+```sh
+  npx prisma init
+```
 
 Depois vamos configurar o seguinte:
 
   1. Instalar a extensão do prisma no VsCode.
 
   2. Ajustar o arqivo settings.json do VSCode para quando salvar um arquivo do tipo prisma, ele tente formatar o arquivo.
-  
-    > "[prisma]": {
-        "editor.formatOnSave": true
-      }
+
+  ```json
+  "[prisma]": {
+      "editor.formatOnSave": true
+    }
+  ```
   
   3. Iniciar o prisma.
 
-  `npx prisma init`
+  ```sh
+    npx prisma init
+  ```
 
   4. Gerar o prisma depois de criar as models
 
-  `npx prisma generate`
+  ```sh
+    npx prisma generate
+  ```
 
 ### ESlint
 
 Usando as configruações da rocketseat
+
+### Docker
+
+Comando para criar o container.
+
+```sh
+  docker run --name gym-anywhere -e POSTGRESQL_USERNAME=docker -e POSTGRESQL_PASSWORD=docker -e POSTGRESQL_DATABASE=gym-anywhere -p 5432:5432 bitnami/postgresql
+```
+
