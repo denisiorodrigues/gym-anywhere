@@ -4,6 +4,13 @@ GymPass style app.
 Utilizaremos o Prisma ORM para gerenciar a base de dados que nesse caso escolhemos o postgresql.
 A base de dados vai ficar no docker.
 
+Foi implementando seguindo os princípios do SOLID.
+
+>  D - Depency inversion (Inversão de dependência)
+
+Também foi aplicado alguns padrões de projeto como:
+  * Repository Pattern
+
 ---
 
 ## RFs (Requisitos funcionais)
