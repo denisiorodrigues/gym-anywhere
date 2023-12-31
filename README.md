@@ -4,12 +4,20 @@ GymPass style app.
 Utilizaremos o Prisma ORM para gerenciar a base de dados que nesse caso escolhemos o postgresql.
 A base de dados vai ficar no docker.
 
-Foi implementando seguindo os princípios do SOLID.
+Foi implementando seguindo os princípios do SOLID e teste unitário e alguns padrões de projeto.
 
->  D - Depency inversion (Inversão de dependência)
+Para os testes eslhi o framework vitest. [Link para o NPM](tps://www.npmjs.com/package/vitest)
 
-Também foi aplicado alguns padrões de projeto como:
-  * Repository Pattern
+Significado de cada letra do S.O.L.I.D:
+>**S** -
+>**O** -
+>**L** -
+>**I** -
+>**D** - Depency inversion (Inversão de dependência)
+
+Segue os padrões implementados:
+
+* Repository Pattern
 
 ---
 
@@ -44,13 +52,24 @@ Também foi aplicado alguns padrões de projeto como:
 
 ## Bibliotecas
 
-Bibliotecas para desenvolvimento
+TypeScript e a tipagem
 
-``npm i typescript @types/node tsx tsup -D``
+```sh
+  npm i typescript @types/node tsx tsup -D
+```
 
-Instalar o fastfy
+Instalar o fastfy (servidor web)
 
-``npm i fastify``
+```sh
+  npm i fastify
+```
+
+Teste
+
+```sh
+  npm i vitest vite-tsconfig-paths -D
+```
+_Para mais informações de configuração ir para a sessão [Testes](###Testes)_
 
 ## Configuração
 
@@ -59,16 +78,19 @@ Instalar o fastfy
 ### Projeto
 
 Criar o arquivo tsconfig.json
-`npx tsc --ini`
+```sh
+  npx tsc --ini
+```
 
-Mudar o targei para uma versão mais recente do Ecmascript
-`"target": "es2020",`
+Mudar o targei para uma versão mais recente do Ecmascript `"target": "es2020",`
 
-String de conexão com a base de dados
+String de conexão com a base de dados:
 
 - PostgreSQL
 
-``
+```
+postgresql://docker:docker@127.0.0.1:5432/gym-anywhere?schema=public
+```
 
 ### ORM
 
@@ -114,3 +136,6 @@ Comando para criar o container.
   docker run --name gym-anywhere -e POSTGRESQL_USERNAME=docker -e POSTGRESQL_PASSWORD=docker -e POSTGRESQL_DATABASE=gym-anywhere -p 5432:5432 bitnami/postgresql
 ```
 
+### Testes
+
+Vamos utilizar a biblioteca `vite-tsconfig-paths` para configurar o `vitest` aceitar as configurações do `tsconfig`.
