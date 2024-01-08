@@ -18,6 +18,10 @@ Significado de cada letra do S.O.L.I.D:
 Segue os padrões implementados:
 
 * Repository Pattern
+  - O padrão de projeto Factory Method [1] é um dos vinte e três padrões de projeto bem conhecidos que descrevem como resolver problemas recorrentes de projeto para projetar software orientado a objetos flexível e reutilizável, ou seja, objetos que são mais fáceis de implementar, alterar, testar e reutilizar.
+
+* Factory Pattern
+  - Faz a mediação entre o domínio e as camadas de mapeamento de dados usando uma interface semelhante a uma coleção para acessar objetos de domínio. É um padrão que utilizamos nos testes para para a repeticção de código ao chamar as instências dos repositórios e etc.
 
 ---
 
