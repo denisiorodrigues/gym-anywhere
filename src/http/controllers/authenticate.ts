@@ -3,6 +3,7 @@ import { z } from 'zod'
 import { UserAlreadyExistsError } from '@/use-case/erros/user-already-exists-error'
 import { PrismaUsersRepository } from '@/repositories/prisma/prisma-users-repository'
 import { AuthenticateUseCase } from '@/use-case/authenticate'
+import { InvalidCredentialsError } from '@/use-case/erros/invalid-credentials-error'
 
 export async function authenticate(
   request: FastifyRequest,
@@ -24,7 +25,7 @@ export async function authenticate(
       password,
     })
   } catch (err) {
-    if (err instanceof UserAlreadyExistsError) {
+    if (err instanceof InvalidCredentialsError) {
       return reply.status(400).send({
         message: err.message,
       })
