@@ -1,6 +1,5 @@
-# App
+# GymPass style App
 
-GymPass style app.
 Utilizaremos o Prisma ORM para gerenciar a base de dados que nesse caso escolhemos o postgresql.
 A base de dados vai ficar no docker.
 
@@ -28,7 +27,7 @@ Segue os padrões implementados:
 ## RFs (Requisitos funcionais)
 
 - [x] Deve ser possível se cadastrar;
-- [ ] Deve ser possível se autenticar;
+- [x] Deve ser possível se autenticar;
 - [ ] Deve ser possível obter o perfil de um usuário logado;
 - [ ] Deve ser possível obter o número de check-ins realizados pelo usuário logado;
 - [ ] Deve ser possível o usuário obter o seu histórico de check-ins;
