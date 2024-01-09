@@ -14,7 +14,7 @@ describe('Authenticate Use Case', () => {
   })
 
   it('should be able to authenticate', async () => {
-    usersRepository.create({
+    await usersRepository.create({
       name: 'Jhon Doe',
       email: 'jhon@doe.com',
       password_hash: await hash('123456', 6),
@@ -29,7 +29,7 @@ describe('Authenticate Use Case', () => {
   })
 
   it('should not be able to authenticate with wrong email', async () => {
-    expect(() =>
+    await expect(() =>
       sut.execute({
         email: 'jhon@doe.com',
         password: '123456',
@@ -38,13 +38,13 @@ describe('Authenticate Use Case', () => {
   })
 
   it('should not be able to authenticate with wrong password', async () => {
-    usersRepository.create({
+    await usersRepository.create({
       name: 'Jhon Doe',
       email: 'jhon@doe.com',
       password_hash: await hash('123456', 6),
     })
 
-    expect(() =>
+    await expect(() =>
       sut.execute({
         email: 'jhon@doe.com',
         password: '123123',
