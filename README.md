@@ -8,11 +8,11 @@ Foi implementando seguindo os princípios do SOLID e teste unitário e alguns pa
 Para os testes eslhi o framework vitest. [Link para o NPM](tps://www.npmjs.com/package/vitest)
 
 Significado de cada letra do S.O.L.I.D:
->**S** -
->**O** -
->**L** -
->**I** -
->**D** - Depency inversion (Inversão de dependência)
+> **S** -
+  **O** -
+  **L** -
+  **I** -
+  **D** - Depency inversion (Inversão de dependência)
 
 Segue os padrões implementados:
 
