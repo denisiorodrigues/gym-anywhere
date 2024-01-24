@@ -21,7 +21,7 @@ export class PrismaCheckInsRepository implements CheckInsRepository {
     const checkIn = prisma.checkIn.findFirst({
       where: {
         user_id: userId,
-        validated_at: {
+        created_at: {
           gte: startOfTheDay.toDate(),
           lte: endOfTheDay.toDate(),
         },
