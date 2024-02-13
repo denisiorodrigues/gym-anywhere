@@ -1,7 +1,7 @@
 import { FastifyRequest, FastifyReply } from 'fastify'
 import { z } from 'zod'
 import { InvalidCredentialsError } from '@/use-case/erros/invalid-credentials-error'
-import { makeRegisterUseCase } from '@/use-cases/factories/make-register-use-case'
+import { makeAuthenticateUseCase } from '@/use-case/factories/make-autheticate-use-case'
 
 export async function authenticate(
   request: FastifyRequest,
@@ -15,11 +15,20 @@ export async function authenticate(
   const { email, password } = authenticateBodySchema.parse(request.body)
 
   try {
-    const authenticateUseCase = makeRegisterUseCase
+    const authenticateUseCase = makeAuthenticateUseCase()
+    const { user } = await authenticateUseCase.execute({ email, password })
 
-    await authenticateUseCase.execute({
-      email,
-      password,
+    const token = await reply.jwtSign(
+      {},
+      {
+        sign: {
+          sub: user.id,
+        },
+      },
+    )
+
+    return reply.status(200).send({
+      token,
     })
   } catch (err) {
     if (err instanceof InvalidCredentialsError) {

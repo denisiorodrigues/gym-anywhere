@@ -5,7 +5,7 @@ A base de dados vai ficar no docker.
 
 Foi implementando seguindo os princípios do SOLID e teste unitário e alguns padrões de projeto.
 
-Para os testes eslhi o framework vitest. [Link para o NPM](tps://www.npmjs.com/package/vitest)
+Para os testes foi escolhido o vitest. [Link para o NPM](tps://www.npmjs.com/package/vitest)
 
 Significado de cada letra do S.O.L.I.D:
 > **S** -
