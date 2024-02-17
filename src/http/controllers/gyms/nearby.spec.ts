@@ -13,7 +13,7 @@ describe('Nearby GYMS (e2e)', () => {
     await app.close()
   })
 
-  it('should bo able to list nearby gyms ', async () => {
+  it('should be able to list nearby gyms', async () => {
     const { token } = await createAndAuthenticateUser(app)
 
     await request(app.server)
@@ -38,29 +38,20 @@ describe('Nearby GYMS (e2e)', () => {
         longitude: -38.4423192,
       })
 
-    // const response = await request(app.server)
-    //   .get('/gyms/nearby')
-    //   .set('Authorization', `Bearer ${token}`)
-    //   .query({
-    //     latitude: -3.7321827,
-    //     longitude: -38.5609648,
-    //   })
-    //   .send()
-
     const response = await request(app.server)
       .get('/gyms/nearby')
-      .query({
-        latitude: -27.2092052,
-        longitude: -49.6401091,
-      })
       .set('Authorization', `Bearer ${token}`)
+      .query({
+        latitude: -3.7321827,
+        longitude: -38.5609648,
+      })
       .send()
 
     expect(response.statusCode).toEqual(200)
     expect(response.body.gyms).toHaveLength(1)
     expect(response.body.gyms).toEqual([
       expect.objectContaining({
-        title: 'Malhação',
+        title: 'New Gym',
       }),
     ])
   })
