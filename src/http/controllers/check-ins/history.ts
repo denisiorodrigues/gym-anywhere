@@ -12,10 +12,12 @@ export async function history(request: FastifyRequest, reply: FastifyReply) {
 
   const fatchUserCheckInsHistory = makeFetchUserChekInsHistoryUseCase()
 
-  await fatchUserCheckInsHistory.execute({
+  const { checkIns } = await fatchUserCheckInsHistory.execute({
     userId: request.user.sub,
     page,
   })
 
-  return reply.status(201).send()
+  return reply.status(200).send({
+    checkIns,
+  })
 }
