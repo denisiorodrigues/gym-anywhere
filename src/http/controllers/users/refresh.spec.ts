@@ -27,7 +27,7 @@ describe('Refresh Token (e2e)', () => {
     const cookies = authResponse.get('Set-Cookie')
 
     const response = await request(app.server)
-      .patch('token/refresh')
+      .patch('/token/refresh')
       .set('Cookie', cookies)
       .send()
 
@@ -35,7 +35,7 @@ describe('Refresh Token (e2e)', () => {
     expect(response.body).toEqual({
       token: expect.any(String),
     })
-    expect(response.get('Get-Cookie')).toEqual([
+    expect(response.get('Set-Cookie')).toEqual([
       expect.stringContaining('refreshToken='),
     ])
   })
