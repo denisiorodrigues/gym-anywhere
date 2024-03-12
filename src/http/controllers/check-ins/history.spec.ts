@@ -27,19 +27,6 @@ describe('Create Check-in (e2e)', () => {
       },
     })
 
-    const checkIns = await prisma.checkIn.createMany({
-      data: [
-        {
-          gym_id: gym.id,
-          user_id: user.id,
-        },
-        {
-          gym_id: gym.id,
-          user_id: user.id,
-        },
-      ],
-    })
-
     const response = await request(app.server)
       .get('/check-ins/history')
       .set('Authorization', `Bearer ${token}`)
