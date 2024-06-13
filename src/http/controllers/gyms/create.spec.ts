@@ -14,7 +14,7 @@ describe('Create GYM (e2e)', () => {
   })
 
   it('should bo able to create a gym ', async () => {
-    const { token } = await createAndAuthenticateUser(app)
+    const { token } = await createAndAuthenticateUser(app, true)
 
     const response = await request(app.server)
       .post('/gyms')
@@ -28,10 +28,5 @@ describe('Create GYM (e2e)', () => {
       })
 
     expect(response.statusCode).toEqual(201)
-    // expect(response.body.user).toEqual(
-    //   expect.objectContaining({
-    //     email: 'jhondoe@email.com',
-    //   }),
-    // )
   })
 })
